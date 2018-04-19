@@ -1,0 +1,1513 @@
+ Xming on Linux
+ sudo apt-get install openssh-server xfce4
+ 
+
+what is GIT
+Conceptually Git is different from other revision control systems. Older RCS tracked changes to files, which you can see when you poke around in their configuration files. Git's approach is more like filesystem snapshots, where each commit or saved state is a complete snapshot rather than a file full of diffs. Git is space-efficient because it stores only changes in each snapshot, and links to unchanged files. All changes are checksummed, so you are assured of data integrity, and always being able to reverse changes.
+
+
+
+java -XX:+AlwaysPreTouch -Xms -Xmx
+this make sure the memory is allocated during intialization of JVM, rather than keeping it what is not needed as virtual. pitfall - might experience latency
+
+
+to implement toString for bean classes:
+	 public String toString() {
+		   return ToStringBuilder.reflectionToString(this);//Apache Commons Method
+		 }
+
+
+work steal algorithm
+conventional way, the processor generates threads and scheduler attempts to move some of the threads to underutilized processors
+here the underutilized threads attemps to steal from the processor
+		 
+		 
+
+NFS Source URL - http://10.128.77.82/svn/mibv3_glosrv/branches/mibv3_glo_r1.0_pd/sources/NFS-EE
+http://10.112.177.88/destiny/NFS-EE/tags/nfs-ee_v2.00_final
+http://10.112.177.88/destiny/
+
+http://10.112.177.88/destiny/NFS-EE/tags/nfs-ee_v2.03/src/com/scb/nfs/security/web/ServletPathRedirectStrategy.java
+
+http://10.128.79.4/strlogin.html
+udbdvibnk/pass1234
+
+queue box log - isismqms/password
+dspmq - to display QM
+to display queue details:
+runmqsc HKIBK1S1
+
+to check where all the queue is connected to 
+dis qs(XMLINPUT.SIMQ) type(handle) all
+and then check for CONNAME(10.112.179.221)
+
+dis qs(AE.CAR
+ .INPUT.QUEUE.SIT) type(handle) all
+end
+dis q(I
+ .AE.RLS.REQ.PUT) type(handle) all  
+dis qs(PKCAR
+ .INPUT.QUEUE) type(handle) all
+runmqsc HKIBK1S1 dis qs(*) type(handle) all
+dis q (AE.CAR
+ .INPUT.QUEUE.SIT)
+runmqsc QMGR_NAME dis q(<queue name>) all
+DISPLAY CHANNEL(I
+ .SVRCONN) ALL
+    4 : dis q (AE.*)
+AMQ8409: Display Queue details.
+   QUEUE(AE.1394844.INPUT.Q)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.1394844.INPUT.Q1)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.AVANZ
+ .INPUT.Q)                TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.BDTRADE.QUEUE)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.BDTRADE.RECEIVE.QUEUE)         TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.BESTFX.EBBS.INPUT.QUEUE)       TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CAR
+ .INPUT.QUEUE)              TYPE(QREMOTE)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CAR
+ .INPUT.QUEUE.SIT)          TYPE(QREMOTE)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CAR
+ .TRNS)                     TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CR.INPUT.QUEUE)                TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CR.OATINPUT.Q)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CR.OATRECEIVE.Q)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CR.OATRECEIVE.Q1)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CR.OATRECEIVE.Q2)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CR1.INPUT.QUEUE)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.CRJ.EBBS.INPUT.QUEUE)          TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.DBTRADE.INPUT.Q)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.DBTRADE.RECEIVE.Q)             TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.E12.CARDINPUT.QUEUE)           TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.E12.INPUT.QUEUE)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.CRINPUT.Q)                TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.Q)                  TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.Q1)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.Q180)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.Q2)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.Q208)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.Q3)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.Q4)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QE)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QFTS)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QUE)                TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QUEUE)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QUEUE10483)         TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QUEUE11)            TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QUEUE111)           TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QUEUE21)            TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.INPUT.QUEUET)             TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.PERF.RECEIVE.QUEUE)       TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.PERF.RECEIVE.QUEUE1)      TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.PSS.Q)                    TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.QUEUE.TECHOBS)            TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.QUEUE.TECHOBS208)         TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.SIT.Q)                    TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.SIT.QUEUE)                TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.SIT.QUEUEE)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.UAT.TEST.Q)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBBS.UATQUEUE)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBS.INPUT.Q)                   TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EBS.SIT.QUEUE)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EMORT.RECEIVE.QUEUE)           TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EST.RECEIVE.Q)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EST.RECEIVE.Q1)                TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EST.RECEIVE.QUEUE)             TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.EST.XML.RECEIVE.Q1)            TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.FTS.INPUT.Q)                   TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.FTS.RECEIVE.Q)                 TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.FTS.RECEIVE.Q40)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.FUTECH.SIM)                    TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.GUI.RECEIVE.QUEUE)             TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.IFX.PERF.RECEIVE.QUEUE)        TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.IFX.PERF.RECEIVE.QUEUE1)       TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.MY.EMORT.RECEIVE.Q)            TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.MY.RAMS.RECEIVE.Q)             TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.NX.INPUT.QUEUE)                TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.OPAL.INPUT.DUP.Q)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.OPAL.INPUT.FXRATE)             TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.OPAL.INPUT.QUEUE)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.OPAL.UAT.INPUT.QUEUE)          TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.OPAL.UAT.RECEVIE.QUEUE)        TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.OPAL.UATRESQ)                  TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.OPAL.XML.RECEVIE.Q)            TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.RECEIVE.Q104)                  TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.SIT.EBBS.INPUT.QUEUE)          TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.SMARTOAT.RECEIVE.Q)            TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.SMARTXML.RECEIVE.Q)            TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.SMS.INPUT.QUEUE)               TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.UAT.EBBS.INPUT.QUEUE)          TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.UAT.EBBS.INPUT.QUEUE1)         TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.UIPHASE.INPUT.QUEUE)           TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.UIPHASEII.INPUT.QUEUE)         TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.XML.CARDS400.RES)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.XML.INPUT.REQ180)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.XML.INPUT.RES180)              TYPE(QLOCAL)
+AMQ8409: Display Queue details.
+   QUEUE(AE.XML.QUEUE.TECHOBS208)          TYPE(QLOCAL)
+end
+     5 : end
+4 MQSC commands read.
+One command has a syntax error.
+All valid MQSC commands were processed.
+
+
+
+[scbops@mywlnfsa07 bin]$ ./dumpNameSpace.sh -startAt cell/nodes/UAT_SS_AE_APP01/servers/UAT_SS_AE_P2_CL01
+Java EE agent is NOT enabled
+
+Getting the initial context
+Realm/Cell Name: defaultWIMFileBasedRealm
+User Identity: wasmon
+User Password:                                                                                                                Getting the starting context
+
+==============================================================================
+Name Space Dump
+   Context factory: com.ibm.websphere.naming.WsnInitialContextFactory
+   Provider URL: corbaloc:iiop:localhost:2809
+   Requested root context: cell
+   Starting context: (top)=UAT_SS_AE_CELL/cell/nodes/UAT_SS_AE_APP01/servers/UAT_SS_AE_P2_CL01
+   Formatting rules: jndi
+   Time of dump: Tue Mar 19 20:18:05 MYT 2013
+==============================================================================
+
+
+==============================================================================
+Beginning of Name Space Dump
+==============================================================================
+
+    1 (top)
+    2 (top)/NFS.EBSAE.IBNKAE.RESPIN                      com.ibm.mq.jms.MQQueue
+    3 (top)/cell                                         javax.naming.Context
+    3    Linked to context: UAT_SS_AE_CELL
+    4 (top)/I
+ .AE.CAR
+ .RESP.DEST                         com.ibm.mq.jms.MQQueue
+    5 (top)/I
+ .AE.RLS.REQ.PUT                            com.ibm.mq.jms.MQQueue
+    6 (top)/wm                                           javax.naming.Context
+    7 (top)/wm/default                                   com.ibm.websphere.asynchbeans.WorkManager
+    8 (top)/wm/ard                                       com.ibm.websphere.asynchbeans.WorkManager
+    9 (top)/I
+ .AE.RLS.RESP.DEST                          com.ibm.mq.jms.MQQueue
+   10 (top)/I
+ .XML.RECEIVE.QUEUE                         com.ibm.mq.jms.MQQueue
+   11 (top)/I
+ .AE.CAR
+ .REQ.PUT                           com.ibm.mq.jms.MQQueue
+   12 (top)/jta                                          javax.naming.Context
+   13 (top)/jta/usertransaction                          java.lang.Object
+   14 (top)/I
+ .RLS.ReplyToQ                              com.ibm.mq.jms.MQQueue
+   15 (top)/services                                     javax.naming.Context
+   16 (top)/services/cache                               javax.naming.Context
+   17 (top)/services/cache/distributedmap                com.ibm.websphere.cache.DistributedObjectCache
+   18 (top)/services/extensionregistry                   javax.naming.Context
+   19 (top)/services/extensionregistry/global            com.ibm.wkplc.extensionregistry.ExtensionRegistryProxy
+   20 (top)/I
+ .EBBS.LISTENER.QUE                         com.ibm.mq.jms.MQQueue
+   21 (top)/thisNode                                     javax.naming.Context
+   21    Linked to context: UAT_SS_AE_CELL/nodes/UAT_SS_AE_APP01
+   22 (top)/eis                                          javax.naming.Context
+   23 (top)/eis/jdbc                                     javax.naming.Context
+   24 (top)/eis/jdbc/IBANKDB_CMP                         javax.resource.cci.ConnectionFactory
+   25 (top)/eis/jdbc/EBBS_IBANKDB_CMP                    javax.resource.cci.ConnectionFactory
+   26 (top)/testPK                                       com.ibm.mq.jms.MQQueue
+   27 (top)/tm                                           javax.naming.Context
+   28 (top)/tm/default                                   com.ibm.ws.asynchbeans.timer.TimerManagerImpl
+   29 (top)/AE.OPAL.RECEIVE.QUEUE                        com.ibm.mq.jms.MQQueue
+   30 (top)/SecurityServer                               com.ibm.ws.security.server._SecurityServer_Stub
+   31 (top)/ISISAEQCF                                    javax.jms.QueueConnectionFactory
+   32 (top)/AE.OPAL.INPUT.REQ                            com.ibm.mq.jms.MQQueue
+   33 (top)/AdminUserRegistry                            com.ibm.websphere.security._UserRegistry_Stub
+   34 (top)/jdbc                                         javax.naming.Context
+   35 (top)/jdbc/IBANKDB                                 javax.resource.cci.ConnectionFactory
+   36 (top)/jdbc/EBBS_IBANKDB                            javax.resource.cci.ConnectionFactory
+   37 (top)/jdbc/DefaultEJBTimerDataSource               javax.resource.cci.ConnectionFactory
+   38 (top)/UserRegistry                                 com.ibm.websphere.security._UserRegistry_Stub
+   39 (top)/NFS.IBNKAE.EBSAE.RQST                        com.ibm.mq.jms.MQQueue
+   40 (top)/AEIBK.HSMOUT.QUEUE                           com.ibm.mq.jms.MQQueue
+   41 (top)/servername                                   java.lang.String
+
+==============================================================================
+End of Name Space Dump
+==============================================================================
+
+./dumpNameSpace.sh -url corbaloc::mywlnfsa07:10022
+
+[scbops@mywlnfsa07 bin]$ ./dumpNameSpace.sh -startAt clusters/UAT_SS_AE_P2
+Java EE agent is NOT enabled
+
+Getting the initial context
+Realm/Cell Name: defaultWIMFileBasedRealm
+User Identity: wasmon
+User Password:                                                                                                                Getting the starting context
+
+==============================================================================
+Name Space Dump
+   Context factory: com.ibm.websphere.naming.WsnInitialContextFactory
+   Provider URL: corbaloc:iiop:localhost:2809
+   Requested root context: cell
+   Starting context: (top)=UAT_SS_AE_CELL/clusters/UAT_SS_AE_P2
+   Formatting rules: jndi
+   Time of dump: Tue Mar 19 20:38:49 MYT 2013
+==============================================================================
+
+
+==============================================================================
+Beginning of Name Space Dump
+==============================================================================
+
+    1 (top)
+    2 (top)/NFS.EBSAE.IBNKAE.RESPIN                      com.ibm.mq.jms.MQQueue
+    3 (top)/cell                                         javax.naming.Context
+    3    Linked to context: UAT_SS_AE_CELL
+    4 (top)/I
+ .AE.CAR
+ .RESP.DEST                         com.ibm.mq.jms.MQQueue
+    5 (top)/I
+ .AE.RLS.REQ.PUT                            com.ibm.mq.jms.MQQueue
+    6 (top)/wm                                           javax.naming.Context
+    7 (top)/wm/default                                   com.ibm.websphere.asynchbeans.WorkManager
+    8 (top)/wm/ard                                       com.ibm.websphere.asynchbeans.WorkManager
+    9 (top)/I
+ .AE.RLS.RESP.DEST                          com.ibm.mq.jms.MQQueue
+   10 (top)/I
+ .XML.RECEIVE.QUEUE                         com.ibm.mq.jms.MQQueue
+   11 (top)/I
+ .AE.CAR
+ .REQ.PUT                           com.ibm.mq.jms.MQQueue
+   12 (top)/jta                                          javax.naming.Context
+   13 (top)/jta/usertransaction                          java.lang.Object
+   14 (top)/I
+ .RLS.ReplyToQ                              com.ibm.mq.jms.MQQueue
+   15 (top)/services                                     javax.naming.Context
+   16 (top)/services/cache                               javax.naming.Context
+   17 (top)/services/cache/distributedmap                com.ibm.websphere.cache.DistributedObjectCache
+   18 (top)/services/extensionregistry                   javax.naming.Context
+   19 (top)/services/extensionregistry/global            com.ibm.wkplc.extensionregistry.ExtensionRegistryProxy
+   20 (top)/I
+ .EBBS.LISTENER.QUE                         com.ibm.mq.jms.MQQueue
+   21 (top)/thisNode                                     javax.naming.Context
+   21    Linked to context: UAT_SS_AE_CELL/nodes/UAT_SS_AE_APP01
+   22 (top)/eis                                          javax.naming.Context
+   23 (top)/eis/jdbc                                     javax.naming.Context
+   24 (top)/eis/jdbc/IBANKDB_CMP                         javax.resource.cci.ConnectionFactory
+   25 (top)/eis/jdbc/EBBS_IBANKDB_CMP                    javax.resource.cci.ConnectionFactory
+   26 (top)/testPK                                       com.ibm.mq.jms.MQQueue
+   27 (top)/tm                                           javax.naming.Context
+   28 (top)/tm/default                                   com.ibm.ws.asynchbeans.timer.TimerManagerImpl
+   29 (top)/AE.OPAL.RECEIVE.QUEUE                        com.ibm.mq.jms.MQQueue
+   30 (top)/SecurityServer                               com.ibm.ws.security.server._SecurityServer_Stub
+   31 (top)/ISISAEQCF                                    javax.jms.QueueConnectionFactory
+   32 (top)/AE.OPAL.INPUT.REQ                            com.ibm.mq.jms.MQQueue
+   33 (top)/AdminUserRegistry                            com.ibm.websphere.security._UserRegistry_Stub
+   34 (top)/jdbc                                         javax.naming.Context
+   35 (top)/jdbc/IBANKDB                                 javax.resource.cci.ConnectionFactory
+   36 (top)/jdbc/EBBS_IBANKDB                            javax.resource.cci.ConnectionFactory
+   37 (top)/jdbc/DefaultEJBTimerDataSource               javax.resource.cci.ConnectionFactory
+   38 (top)/UserRegistry                                 com.ibm.websphere.security._UserRegistry_Stub
+   39 (top)/NFS.IBNKAE.EBSAE.RQST                        com.ibm.mq.jms.MQQueue
+   40 (top)/AEIBK.HSMOUT.QUEUE                           com.ibm.mq.jms.MQQueue
+   41 (top)/servername                                   java.lang.String
+
+==============================================================================
+End of Name Space Dump
+==============================================================================
+
+[scbops@mywlnfsa07 bin]$ ./dumpNameSpace.sh -startAt cell/nodes/UAT_SS_AE_APP01/servers/UAT_SS_AE_CL01
+Java EE agent is NOT enabled
+
+Getting the initial context
+Realm/Cell Name: defaultWIMFileBasedRealm
+User Identity: wasmon                                                                     User Password:                                                                            Realm/Cell Name: defaultWIMFileBasedRealm
+User Identity: wasmon
+User Password:                                                                            Getting the starting context
+
+==============================================================================
+Name Space Dump
+   Context factory: com.ibm.websphere.naming.WsnInitialContextFactory
+   Provider URL: corbaloc:iiop:localhost:2809
+   Requested root context: cell
+   Starting context: (top)=UAT_SS_AE_CELL/nodes/UAT_SS_AE_APP01/servers/UAT_SS_AE_CL01
+   Formatting rules: jndi
+   Time of dump: Thu Jan 31 20:17:15 MYT 2013
+==============================================================================
+
+
+==============================================================================
+Beginning of Name Space Dump
+==============================================================================
+
+    1 (top)
+    2 (top)/jdbc                                         javax.naming.Context
+    3 (top)/jdbc/IBANKDB_ORR                             javax.resource.cci.ConnectionFactory
+    4 (top)/jdbc/DefaultEJBTimerDataSource               javax.resource.cci.ConnectionFactory
+    5 (top)/jdbc/IBANKDB                                 javax.resource.cci.ConnectionFactory
+    6 (top)/jdbc/EBBS_IBANKDB                            javax.resource.cci.ConnectionFactory
+    7 (top)/tm                                           javax.naming.Context
+    8 (top)/tm/default                                   com.ibm.ws.asynchbeans.timer.TimerManagerImpl
+    9 (top)/I
+ .XML.RECEIVE.QUEUE                         com.ibm.mq.jms.MQQueue
+   10 (top)/AEIVR.HSMIN.QUEUE                            com.ibm.mq.jms.MQQueue
+   11 (top)/services                                     javax.naming.Context
+   12 (top)/services/extensionregistry                   javax.naming.Context
+   13 (top)/services/extensionregistry/global            com.ibm.wkplc.extensionregistry.ExtensionRegistryProxy
+   14 (top)/services/cache                               javax.naming.Context
+   15 (top)/services/cache/distributedmap                com.ibm.websphere.cache.DistributedObjectCache
+   16 (top)/I
+ .AE.RLS.REQ.PUT                            com.ibm.mq.jms.MQQueue
+   17 (top)/I
+ .RLS.ReplyToQ                              com.ibm.mq.jms.MQQueue
+   18 (top)/cell                                         javax.naming.Context
+   18    Linked to context: UAT_SS_AE_CELL
+   19 (top)/AEIBK.HSMOUT.QUEUE                           com.ibm.mq.jms.MQQueue
+   20 (top)/eis                                          javax.naming.Context
+   21 (top)/eis/jdbc                                     javax.naming.Context
+   22 (top)/eis/jdbc/IBANKDB_ORR_CMP                     javax.resource.cci.ConnectionFactory
+   23 (top)/eis/jdbc/IBANKDB_CMP                         javax.resource.cci.ConnectionFactory
+   24 (top)/eis/jdbc/EBBS_IBANKDB_CMP                    javax.resource.cci.ConnectionFactory
+   25 (top)/NFS.IBNKAE.EBSAE.RQST                        com.ibm.mq.jms.MQQueue
+   26 (top)/thisNode                                     javax.naming.Context
+   26    Linked to context: UAT_SS_AE_CELL/nodes/UAT_SS_AE_APP01
+   27 (top)/AdminUserRegistry                            com.ibm.websphere.security._UserRegistry_Stub
+   28 (top)/jta                                          javax.naming.Context
+   29 (top)/jta/usertransaction                          java.lang.Object
+   30 (top)/TIN.UAT                                      com.ibm.mq.jms.MQQueue
+   31 (top)/wm                                           javax.naming.Context
+   32 (top)/wm/default                                   com.ibm.websphere.asynchbeans.WorkManager
+   33 (top)/wm/ard                                       com.ibm.websphere.asynchbeans.WorkManager
+   34 (top)/ISISAEQCF                                    javax.jms.QueueConnectionFactory
+   35 (top)/servername                                   java.lang.String
+   36 (top)/I
+ .GL.REQ.PUT                                com.ibm.mq.jms.MQQueue
+   37 (top)/UserRegistry                                 com.ibm.websphere.security._UserRegistry_Stub
+   38 (top)/I
+ .GL.RESP.DEST                              com.ibm.mq.jms.MQQueue
+   39 (top)/I
+ .AE.CAR
+ .RESP.DEST                         com.ibm.mq.jms.MQQueue
+   40 (top)/NFS.EBSAE.IBNKAE.RESPIN                      com.ibm.mq.jms.MQQueue
+   41 (top)/ISISQCF                                      javax.jms.QueueConnectionFactory
+   42 (top)/I
+ .AE.CAR
+ .REQ.PUT                           com.ibm.mq.jms.MQQueue
+   43 (top)/AE.OPAL.INPUT.REQ                            com.ibm.mq.jms.MQQueue
+   44 (top)/I
+ .AE.RLS.RESP.DEST                          com.ibm.mq.jms.MQQueue
+   45 (top)/testPK                                       com.ibm.mq.jms.MQQueue
+   46 (top)/SecurityServer                               com.ibm.ws.security.server._SecurityServer_Stub
+   47 (top)/XMLRESPONSE.SIMQ                             com.ibm.mq.jms.MQQueue
+   48 (top)/I
+ .EBBS.LISTENER.QUE                         com.ibm.mq.jms.MQQueue
+   49 (top)/AE.OPAL.RECEIVE.QUEUE                        com.ibm.mq.jms.MQQueue
+
+==============================================================================
+End of Name Space Dump
+==============================================================================
+
+com.ibm.ssl.performURLHostNameVerification
+
+to find open ports
+netstat -tulpn
+
+//for unit testing
+	/*public static void main(String args[])
+	{
+		 String result = null;
+	        DataInputStream in = null;
+	        ManageFundTransferPayeeBO manageFundTransferPayeeBO;
+
+		File f = new File("C:/NFS-KLSVN/PHASE2-NFS-AE-UAT/src/com/scb/nfs/ibank/application/listener/Opal_Online_BankData.txt");
+		byte[] buffer = new byte[(int) f.length()];
+  
+		try {
+			in = new DataInputStream(new FileInputStream(f));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+          try {
+			in.readFully(buffer);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+          result = new String(buffer);
+          try
+			{
+        	  ClassPathXmlApplicationContext appContext = 
+      			new ClassPathXmlApplicationContext(new String[] {
+      				"context/base-context.xml", 
+      				"context/base-dao.xml",
+      				"context/ibank-payment-context.xml","context/ibank-cache-context.xml"
+      				}); 
+        	  manageFundTransferPayeeBO=  (ManageFundTransferPayeeBO)appContext.getBean("manageFundTransferPayeeBO");
+			manageFundTransferPayeeBO.doProcessNewBankDataFromListener(result);
+			}
+			catch(Exception ex)
+			{
+				ex.printStackTrace();
+				LOGGER.info("[onMessage :ONLINE BANK DATA UPDATE================= Exception ] = {}", ex);
+				LOGGER.debug("[onMessage : Exception ] = {}", ex);
+			}
+
+	}*/
+	
+/**************************************************************************/
+	
+	mask-AE.properties - for masking in the log 
+# make to false to unmask all numbers in the log	
+mask=true
+mask.logrequest=all,lastfour
+
+##all
+mask.all.regular=(<(userPassword|confirmPassword|newPassword|oldPassword|attachmentPassword|password|AccountPIN|cvv2|hashedValue|headerPassword|Password|accountPIN|billerAccountPin|cv001|BillingAcct|nu001)>)([^<]*)
+mask.all.regular.group=3
+#mask all characters
+mask.all.expression=ALL,*
+
+##lastfour
+mask.lastfour.regular=(<(InternationalBnkAcctNum|accountNumber|fromAccountNumber|toAccountNumber|cc002|iban|toIBAN|cardNo|payeeIBAN|rsaDecryptReturn)>)([^<]*)
+mask.lastfour.regular.group=3
+#mask all characters except right 4 one
+mask.lastfour.expression=ER4,*	
+
+/**************************************************************************/
+
+to view the classes that are loaded :
+-verbose:class
+
+
+
+	In my last posting I described the new Insert/Update/Delete from Select statement in DB2 v8.1.4. But as mentioned, even more powerful is the ability to Select directly from an Insert, update or delete statement. So for example you can run
+
+SELECT * FROM FINAL TABLE (INSERT INTO X VALUES …..)
+
+This will return the values inserted into the table. You may look at this and say "who cares, I just inserted the values so I know what they are". But this select statement will return the final values inserted into the table after triggers fire, generated columns, identity columns and other side effects take place on the table. This is quite useful in pulling back a generated value or a default value from the insert statement.
+
+This statement has three modes you can select from. The are
+
+/*****************
+    OLD TABLE: before the data change statement operation has been executed
+
+    NEW TABLE: just after the data change statement operation has been executed, but before both referential integrity evaluation and the firing of defined after-triggers.
+
+    FINAL TABLE: after the operation has been executed, and after all referential integrity evaluations and after-triggers have been fired.
+/************************
+	Here are some useful examples:
+Assume you want to get back the sequence number that is being inserted as part of a new insert statement. Here is how you can do it with one SQL statement
+
+
+SELECT ordernum INTO :ordernum
+FROM NEW TABLE
+    (INSERT INTO orders(ordernum,…) VALUES(NEXT VALUE FOR orderseq, ...))
+
+
+
+The insert statement puts the new row into the table and tells DB2 to use the next value in the orderseq sequence number. You could then ask DB2 what value was just inserted for this sequence number but rather than making another roundtrip request to the database, you can use the FROM NEW TABLE clause and select directly from the INSERT statement. Here we select the ordernum value back from the insert where ordernum is the new sequence value.
+
+Another example is a select over a delete. Assume you want to delete a row from a table but you also want all of the column values from that row back in your application perhaps to insert somewhere else or write into a log file. Here is an example of how to do that.
+
+
+SELECT * FROM OLD TABLE
+    (DELETE FROM employee WHERE emp_id = 12345)
+
+
+
+Note that in this case you need to use the OLD TABLE clause because you want to select the values before the delete takes place. This select statement will return all the column values for the row where emp_id = 12345 and will delete that row from the table. This can save you from first doing a select statement and then a delete which saves you time from having to go into the database engine twice and can improve concurrency because you do not have to S lock the row to read it and then X lock it to delete it in two separate statements.
+
+Next time you see a select followed by an insert, update or delete in an application take a look and there may be a chance that you can combine them into a single statement and improve your performance. 
+
+/*******************************************************************************************************/
+http://stackoverflow.com/questions/1453295/timer-timertask-versus-thread-sleep-in-java
+found similar questions asked here but there weren't answers to my satisfaction. So rephrasing the question again-
+
+I have a task that needs to be done on a periodic basis (say 1 minute intervals). What is advantage of using Timertask & Timer to do this as opposed to creating a new thread that has a infinite loop with sleep?
+
+Code snippet using timertask-
+
+TimerTask uploadCheckerTimerTask = new TimerTask(){
+
+ public void run() {
+  NewUploadServer.getInstance().checkAndUploadFiles();
+ }
+};
+
+Timer uploadCheckerTimer = new Timer(true);
+uploadCheckerTimer.scheduleAtFixedRate(uploadCheckerTimerTask, 0, 60 * 1000);
+
+Code snippet using Thread and sleep-
+
+Thread t = new Thread(){
+ public void run() {
+  while(true) {
+   NewUploadServer.getInstance().checkAndUploadFiles();
+   Thread.sleep(60 * 1000);
+  }
+ }
+};
+
+he advantage of TimerTask is that it expresses your intention much better (i.e. code readability), and it already has the cancel() feature implemented.
+
+Note that it can be written in a shorter form as well as your own example:
+
+TimerTask uploadCheckerTimer = new Timer(true).scheduleAtFixedRate(
+    new TimerTask(){
+      public void run() { NewUploadServer.getInstance().checkAndUploadFiles(); }
+    }, 0, 60 * 1000);
+    }, 0, 60 * 1000);
+/*******************************************************************************************************/
+
+bash -c "sudo ls"
+
+For sudo there is a -S option for accepting the password from standard input. Here is the man entry:
+
+    -S          The -S (stdin) option causes sudo to read the password from
+                the standard input instead of the terminal device.
+
+This will allow you to run a command like:
+
+echo myPassword | sudo -S ls /tmp
+
+
+keyfile="${user.home}/.ssh/known_hosts"
+
+
+run ssh-keygen
+
+************************
+http://www.csua.berkeley.edu/~ranga/notes/ssh_nopass.html
+********************************
+    On the client run the following commands:
+
+    $ mkdir -p $HOME/.ssh
+    $ chmod 0700 $HOME/.ssh
+    $ ssh-keygen -t dsa -f $HOME/.ssh/id_dsa -P ''
+
+    This should result in two files, $HOME/.ssh/id_dsa (private key) and $HOME/.ssh/id_dsa.pub (public key).
+
+    Copy $HOME/.ssh/id_dsa.pub to the server.
+
+    On the server run the following commands:
+
+    $ cat id_dsa.pub >> $HOME/.ssh/authorized_keys2
+    $ chmod 0600 $HOME/.ssh/authorized_keys2
+
+    Depending on the version of OpenSSH the following commands may also be required:
+
+    $ cat id_dsa.pub >> $HOME/.ssh/authorized_keys
+    $ chmod 0600 $HOME/.ssh/authorized_keys
+
+    An alternative is to create a link from authorized_keys2 to authorized_keys:
+
+    $ cd $HOME/.ssh && ln -s authorized_keys2 authorized_keys
+
+    On the client test the results by ssh'ing to the server:
+
+    $ ssh -i $HOME/.ssh/id_dsa server
+
+    (Optional) Add the following $HOME/.ssh/config on the client:
+
+    Host server
+             IdentityFile ~/.ssh/id_dsa
+
+    This allows ssh access to the server without having to specify the path to the id_dsa file as an argument to ssh each time.
+
+	
+	
+	
+	command to find invalid link
+	find -L . -type l 
+	command to find invalid link and delete them
+	find -L . -type l -delete
+	
+	
+	netstat to find port in local
+	netstat -ltnp
+	
+	
+	Login URL	http://10.112.177.179:101/ebbsApp.html
+
+ 	 
+Sanity Test UserID:PWD	SUPPORTM; scope2009/SUPPORTC;scope2009
+
+
+To print line N, use:
+
+sed 'Nq;d' file
+The q after the last line number tells sed to quit when it reaches the Nth line, instead of wasting time by looping over the remaining lines that we are not interested in. That is why it is efficient on large files.
+
+
+dos command to copy files without .svn
+C:\Users\1375632>dir /a /s /b "C:\Ram\scb\workspace\NFS_IBANK_P2_v2.00\src\" | f
+indstr  "svn" >
+C:\Users\1375632>xcopy /s C:\Ram\scb\workspace\NFS_IBANK_P2_v2.00\src\* C:\Ram\t
+ools\maven-samples\ibank\src\main\java /exclude:copyfiles.tmp /Y
+
+
+tree - shows the structure in tree
+
+to get history
+Alt+F7
+doskey /history
+
+
+
+Linux Commands:
+sudo !! command
+Running the command without specifying sudo command will give you permission denied error. So, you don’t need to rewrite the whole command again just put ‘!!‘ will grab the last command.
+Double exclamation ie ‘!!’ represents the last run command on the shell. 
+
+Press “Ctrl-x-e” from the terminal prompt and start working in editor.
+The “nl command” number the lines of a file.
+The “ss” stands for socket statistics. The command investigates the socket and shows information similar to netstat command. It can display more TCP and state informations than other tools.
+
+The “last” command show the history of last logged in users. This command searches through the file “/var/log/wtmp” and shows a list of logged-in and logged-out users along with tty’s.
+
+Get the current directory structure in tree like format.
+
+ How to delete all files in a directory except some (with particular extensions) ?
+ 
+ rm !(*.c|*.py)
+ 
+ How to make a command not to show up in the output of ‘history’ command?
+ You can achieve this by inserting a space before you type the command on prompt.
+Here is an example :
+$  df
+
+TO GET PREVIOUS COMMAND
+Alt+.
+
+
+
+start sonar
+export PATH=$PATH:/opt/jdk1.6.0_20/jre/bin/
+login as root
+cd /opt/sonar-3.3.1/bin/linux-x86-32
+./sonar start
+./sonar status
+./sonar stop
+
+
+	
+posted Wednesday, December 16, 2009 10:15:47 PM purple mooseage
+Quote
+One easy thing you can do is to turn on Garbage Collection stats at the JVM. If you are using OC4J, then go in to the JVM you're dealing with and get to the Server Parameters section under Administration. Once there, you can turn on GC stats and have them written to a file. Add this to the JVM parameters:
+
+-verbose:gc -Xloggc:c:\somedirectory\log.txt 
+
+/IBM/websphere/was7.0/java/bin/java -jar jenkins-cli.jar -s http://10.112.179.222:8080/jenkins/ help
+/IBM/websphere/was7.0/java/bin/java -jar /root/.jenkins/jenkins-cli.jar -s http://10.112.179.222:8080/jenkins/ reload-configuration --username ram --password rama1234
+/IBM/websphere/was7.0/java/bin/java -jar /root/.jenkins/jenkins-cli.jar -s http://10.112.179.222:8080/jenkins/ delete-builds NFS_PK_FOA 1-29 --username Ram --password rama1234
+ 
+ 
+ =SUMIF(A5:A116,{"Open"},G5:G116)g
+
+find command to search based on modified date
+-mtime n ------  Fileâs data was last modified n*24 hours ago.
+
+-mtime -0.5
+
+-1 the last 24 hours
+
+-0.5 the last 12 hours
+
+-0.25 the last 6 hours
+
++3 more than three days
+			  
+ /usr/bin/find ${GSCLOGDIR} -mtime +${RDM} -regex ".*\(${LOG_PATTERN}\).[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].gz" > $TMPFILE
+
+ in diff to ignore blank lines and blank spaces
+ 
+ diff -bB X1 X2
+ 
+ move from PK to ae - get unresolved compilation error
+ run ivy resole - 
+ 
+ LDAP Search 
+ http://pic.dhe.ibm.com/infocenter/tssfsv21/v1r0m0/index.jsp?topic=%2Fcom.ibm.sanfs222.doc%2Ffog0_t_install_openldap_pkgs.html\
+
+ ldapsearch -h 10.20.173.250 -p 389 "ObjectClass=*" -s sub -b "ou=users,o=standardchartered" -x cn
+ 
+ /opt/csvn/bin/svn  commit ./build/build_v2.xml ./src/com/scb/nfs/ibank/gateway/isis/ISIS-integration-config.xml ./src/com/scb/nfs/ibank/sample/gateway/ISIS.getCardListforCCfunds.xml ./webapp/WEB-INF/spring/base-context.xml -m "Changes for CARDS Interface for Demo!"
+ 
+// to find column names in DB2 
+ 
+SELECT STRIP(TBCREATOR) || '.' || STRIP(TBNAME) FROM SYSIBM.SYSCOLUMNS WHERE NAME like '%IBAN%'
+
+select STRIP(TBCREATOR) || '.' || STRIP(TBNAME) as A, NAME from SYSIBM.SYSCOLUMNS  WHERE (NAME like '%EMAIL%' OR NAME like '%PHONE%' OR NAME like '%MOBILE%')and TBNAME not like 'VW%' order by A
+
+select STRIP(TBCREATOR) || '.' || STRIP(TBNAME) from SYSIBM.SYSCOLUMNS  WHERE NAME like '%PHONE%' and TBNAME not like 'VW%'
+
+select 'UPDATE ' || STRIP(TBCREATOR) || '.' || (TBNAME) ||' set ' || (NAME) ||'=1111' from SYSIBM.SYSCOLUMNS  WHERE NAME like '%MOBILE%' and TBNAME not like 'VW%'
+
+
+
+GET http://localhost:9000/api/manual_measures?resource=myProject&format=json
+
+
+http://10.112.182.37:9090/api/issues?resources=Ibank_mibv3_glo_r1.1_dev_PK&depth=1000&format=xml
+
+
+http://10.112.182.37:9090/api/manual_measures?resource=Ibank_mibv3_glo_r1.1_dev_PK&depth=1000&format=xml
+
+
+http://10.112.182.37:9090/api/manual_measures?resource=Ibank_mibv3_glo_r1.1_dev_PK&metrics=ncloc,coverage
+
+
+Get lines of code and code coverage measures for project org.codehaus.sonar:sonar
+http://10.112.182.37:9090/api/resources?resource=Ibank_mibv3_glo_r1.1_dev_PK&metrics=ncloc,coverage
+
+
+
+
+
+http://10.112.182.37:9090/api/resources?resource=Ibank_mibv3_glo_r1.1_dev_PK&depth=-1&format=xml
+
+http://10.112.182.37:9090/api/resources?resource=Ibank_mibv3_glo_r1.1_dev_PK&depth=-1&scopes=FIL&metrics=coverage&limit=10
+
+
+http://10.112.182.37:9090/api/issues/search?componentRoots=Ibank_mibv3_glo_r1.1_dev_PK
+
+TO GET BLOCKER AND CRITICAL ITEMS OF AN PROJECT
+http://10.112.182.37:9090/api/issues/search?componentRoots=Ibank_mibv3_glo_r1.1_dev_PK&severities=BLOCKER,CRITICAL&pageSize=-1&format=xml
+
+http://10.112.182.37:9090/api/issues/search?componentRoots=Ibank_mibv3_glo_r1.1_dev&severities=BLOCKER,CRITICAL&pageSize=-1&format=xml
+http://10.112.182.37:9090/api/resources?resource=Ibank_mibv3_glo_r1.1_dev:*pgs*&depth=-1&format=xml
+
+http://10.112.182.37:9090/api/issues/search?componentRoots=Ibank_mibv3_glo_r1.1_dev:com.scb.nfs.ibank.pgs.bo &severities=BLOCKER&pageSize=-1&format=xml
+
+Get only Signature Declare Throws Exception
+http://localhost:9000/api/issues/search?componentRoots=com.scb.nfspk&severities=BLOCKER,CRITICAL&pageSize=-1&format=xml&rules=pmd:SignatureDeclareThrowsException
+
+xpath to get the list of columns
+/issues/issues/issue/* [local-name()='component' or local-name()='message' or local-name()='line' or local-name()='severity'or local-name()='rule' ]
+
+
+http://10.112.182.37:9090/api/issues/search?componentRoots=Ibank_mibv3_glo_r1.1_dev&severities=CRITICAL&pageSize=-1&format=xml&pageIndex=5
+
+http://10.23.153.224:9090/api/issues/search?componentRoots=Ibank_mibv3_glo_r1.1_dev&severities=CRITICAL&pageSize=-1&format=xml&pageIndex=5
+
+
+//component[contains(.,'pgs')]
+
+/issues/issues/issue[component[contains(.,'pgs')]]/*
+/issues/issues/issue[component[contains(.,'PGS')]]/../issue 
+
+find class
+find . -name "*.jar" -exec jar -t -f {} \; | grep  "classname"
+
+
+to open HTTPFox
+ctr+shift+F2
+
+to check connectivity, when telnet is not available
+ssh -vp 50000 10.20.172.114
+
+-verbose:class - class loading debugging
+
+
+Jaxp debug	
+-Djaxp.debug=1
+
+JSP Page to display session information
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<%@ page 
+language="java"
+contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"
+%>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="IBM WebSphere Studio">
+<TITLE>SessionObjects.jsp</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Session Object List JSP</H1>
+
+This JSP will dump information about the current HTTPSession.<br><br>
+
+<%@ page import="java.io.*,java.util.*,javax.servlet.*" session="false" %>
+<%! public void dumpSession(HttpServletRequest request, JspWriter out)
+  throws IOException { 
+  HttpSession session = request.getSession(false);
+    Object ro = null ;
+ 
+
+ out.println("Session ID from session.getID : " 
+     + session.getId() + "<br>");
+ 
+ out.println("Session ID from getHeader: "
+     + request.getHeader("Cookie") + "<br>"); 
+  
+
+ Enumeration enum = session.getAttributeNames();
+    if ( enum.hasMoreElements() )
+    {
+      int totalSize = 0;
+     
+ out.println("<h3>Session Objects:</h3>");
+      out.println("<TABLE Border=\"2\" WIDTH=\"65%\" BGCOLOR=\
+       "#DDDDFF\">");
+ out.println("<tr><td>Name</td><td>Object.toString()</td>");
+ out.println("<td>Raw Bytes</td><td>Size (bytes)</td></tr>");
+      while ( enum.hasMoreElements() )
+      {
+   String name = (String)enum.nextElement();
+
+   Object sesobj = session.getAttribute(name) ;
+
+   ObjectOutputStream oos = null;
+       ByteArrayOutputStream bstream = new
+          ByteArrayOutputStream();
+    try {
+      
+	  oos = new ObjectOutputStream(bstream);
+      oos.writeObject(sesobj);
+     }
+    catch (Exception e) {
+      e.printStackTrace();
+    }
+      finally {
+        if (oos != null) {
+        try {oos.flush();}
+       catch (IOException ioe) {}
+       try {oos.close();}
+       catch (IOException ioe) {}
+ 		}
+ }
+
+    ObjectInputStream ois = null;
+   ro = null ;
+    
+	try {
+      ois = new ObjectInputStream(new
+        ByteArrayInputStream(bstream.toByteArray()));
+    ro = ois.readObject();
+ }
+   catch (Exception e) {
+   e.printStackTrace();
+ }
+     finally {
+        if (ois != null) {
+        try {ois.close();}
+        catch (IOException ioe) {}
+ }
+ }
+     
+		totalSize += bstream.size();
+        out.println("<tr><td>" + name + "</td><td>" +
+          session.getAttribute(name) + 
+  "</td><td>" + ro + "</td>");
+     out.println("<td>" + bstream.size() + " bytes </td></tr>");
+ }
+      out.println("</table><BR>");
+  out.println("Total Bytes: " + totalSize + "<br><br>");
+ } else {
+   out.println("No objects in session");
+ }
+ }
+ %>
+<%
+  response.setHeader("Pragma", "No-cache");
+  response.setHeader("Cache-Control", "no-cache");
+  response.setDateHeader("Expires",0);
+  
+	HttpSession session = request.getSession(false);
+  if (session == null) {
+	  out.println("No session");
+ } else {
+	  dumpSession(request, out);
+ }
+
+%>
+</BODY>
+
+
+to search for zero byte files in the current directory
+for %i in (*) do @if "%~zi"=="0" echo "%i"
+
+
+
+serach and replace for below 
+([ABCDE]\.)  
+
+replace text \n\1 or \n$1
+UESTION 12 Which one of the following is NOT an element of an architecture framework?A.A common vocabulary B.A list of recommended standards C.A method for designing an information system in terms of building blocks D.A set of structuresWhichcan be used to develop a broad range of architecturesE. A system development lifecycle method for software engineering Correct Answer: ESection: (none)Explanation Explanation/Reference: 
+
+
+"Ctrl-.  next error
+alt+shift+Z - try/catch block
+ctrl+1 - quck assitant
+
+in case if IVY gets hung, do the below steps to resolve:
+Ivy Settings Path - ${workspace_loc:nfs-lib_v2.00/ivy/ivysettings.xml}
+Property File - ${workspace_loc:NFS_PK_SNR/build/config/ivy-check.properties}
+
+ to get the classpath jar get below command
+ $(echo /prd/starss/clientapi/uaas2.0/lib/*.jar | tr ' ' ':')
+ 
+ 
+  zcat software.tar.gz | tar -tvf software.tar.gz
+  to open the gz file and open the contents
+  
+  
+  Menu capturing can be performed using the "Any window" mode. Open the desired menu and activate windows snapping pressing the "Any window" keyboard shortcut (usually <Ctrl+Shift+W>). Now simply move the cursor over the menu which should be recognized automatically
+  
+  
+  zip -d file.jar unwanted_file.txt
+  
+  
+  log4j print out line # 
+  log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+# Pattern to output the caller's file name and line number.
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] (%F:%L) - %m%n
+
+
+
+to enable Maven dependency
+rightclick Project -> enable Maven dependency
+
+
+Run command as another user using su command
+The following command switches to user oracle's account and shows a list of limits:
+$ su - oracle -c 'ulimit -aHS'
+
+C:\Ram\tools\VNC-Viewer-5.0.3-Windows-32bit.exe
+VNC Server - 10.193.105.113:1 (smadmin)
+smadmin/smadmin
+use F8 for Menu
+
+use export DISPLAY=uklvadlcm01a:1
+
+to get hostname
+uname -a | cut -f2 -d " "
+
+
+<context-param>
+<param-name>log4jExposeWebAppRoot</param-name>
+<param-value>false</param-value>
+</context-param>
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Goto the search menu Ctrl+F and there to the "Mark" tab. Check "Bookmark
+line" (if there is no "Mark" tab update to the current version).
+
+Then just enter your search term and click "Mark All"
+
+==> All line containing the search term are bookmarked.
+
+Now go to the Menu "Search -> Bookmark -> Remove Bookmarked lines"
+
+Done.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Online Certificate Status Protocol (OCSP).  This is the preferred method for revocation checks in most environments today, because it provides near real-time updates.  OCSP allows the authentication server to send a real-time request (like a http web request) to the  service running on the CA or another device and checking the status of the certificate right then & there.  OCSP could be compared to the policeman using the computer in the squad car & doing a look-up into the DMV’s database.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+So, first you need a key specification. You can obtain one via the following, assuming that the key was encoded according to the X.509 standard, which is the case, for example, if the key was generated with the built-in DSA key-pair generator supplied by the SUN provider:
+
+X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(encKey);
+Now you need a KeyFactory object to do the conversion. That object must be one that works with DSA keys.
+
+KeyFactory keyFactory = KeyFactory.getInstance("DSA", "SUN");
+Finally, you can use the KeyFactory object to generate a PublicKey from the key specification.
+
+PublicKey pubKey =
+    keyFactory.generatePublic(pubKeySpec);
+
+	
+to identify name or directory		
+	
+	-bash-4.1$ namei /dev/urandom
+f: /dev/urandom
+ d /
+ d dev
+ c urandom
+
+ 
+ to output without permisiion denied error
+  2>/dev/null
+  
+  
+  **********************
+sh test.sh
+Tells the command to use sh to execute test.sh.
+
+./test.sh
+Tells the command to execute the script. The interpreter needs to be defined in the first line with something like #!/bin/sh or #!/bin/bash. Note (thanks keltar) that in this case the file test.sh needs to have execution rights for the user performing this command. Otherwise it will not be executed.
+
+In both cases, all variables used will expire after the script is executed.
+
+. ./test.sh
+Sources the code. That is, it executes it and whatever executed, variables defined, etc, will persist in the session.
+
+ 
+ 
+ 
+ to get real IP
+ ifconfig
+ /sbin/ifconfig
+ 
+ 
+ The SQL Debugger by default uses ports 40000 to 49000. If you cannot get the debugger to start, make sure that you are not being blocked by a firewall on these ports.
+ 
+ 
+ Unrecognized SSL message, plaintext connection? Exception
+ if you're running the Java process from the command line on Java 6 or earlier, adding this switch solved the issue above for me:
+
+-Dhttps.protocols="TLSv1"
+ 
+ form classpath with jars
+ CLASSPATH=.:$APP_HOME:$LIB_PATH:$(echo $LIB_PATH/*.jar | tr ' ' ':')
+ 
+ 
+ select case when sysdate > (sysdate - 1) then 'Greater-than' else 'Not greater-than' end as DateComp from dual
+ 
+ 
+ select * from v$nls_parameters -- to get localalization
+ 
+ 
+ 
+ 
+ https://aws.amazon.com/partners/apn-portal/
+ AWS Technical Professional
+ 
+ Cloud native apps - app which uses cloud
+ 
+ https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2#
+ srinivasan.ramanujam
+ rama1234
+ 
+ QuikLabs
+ srinivasan.ramanujam@capgemini.com
+ rama1234
+ 
+ AWS Management Console
+AWS Account: 468146524922 
+User Name: awsstudent
+Password: W5k7WStL
+ 
+ IBM softlayer
+ 
+ 
+ multi EBS S3 - storage
+ 
+ 
+ to get ip ADDRESS:
+ -bash-4.1$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    link/ether bc:30:5b:f8:30:50 brd ff:ff:ff:ff:ff:ff
+    inet 172.16.202.216/23 brd 172.16.203.255 scope global em1
+3: em2: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
+    link/ether bc:30:5b:f8:30:51 brd ff:ff:ff:ff:ff:ff
+4: em3: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
+    link/ether bc:30:5b:f8:30:52 brd ff:ff:ff:ff:ff:ff
+5: em4: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN qlen 1000
+    link/ether bc:30:5b:f8:30:53 brd ff:ff:ff:ff:ff:ff
+-bash-4.1$
+
+route print
+C:\Users\1375632>route print
+===========================================================================
+Interface List
+ 12...00 24 d6 57 92 6c ......Intel(R) WiFi Link 5100 AGN
+ 11...00 26 b9 c1 21 be ......Intel(R) 82567LM Gigabit Network Connection
+  1...........................Software Loopback Interface 1
+ 14...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+ 13...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
+===========================================================================
+The 0.0.0.0 network combined with the netmask (subnet mask) of 0.0.0.0 means ALL IP addresses. Note how this is the only line where the gateway is 192.168.111.254. This line tells the computer that for ALL traffic no matter what the destination IP address is send it to 10.132.140.129. This as you may have noticed is my default gateway. This is a default route created by Windows when you configure your TCP/IP settings . It is the last route it evaluates if it can’t find a more specific match in the routing table.
+
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0   10.132.140.129   10.132.140.151     20
+   10.132.140.128  255.255.255.192         On-link    10.132.140.151    276
+   10.132.140.151  255.255.255.255         On-link    10.132.140.151    276
+   192.168.111.0   255.255.255.255         On-link    10.132.140.151    276
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+        224.0.0.0        240.0.0.0         On-link    10.132.140.151    276
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+  255.255.255.255  255.255.255.255         On-link    10.132.140.151    276
+===========================================================================
+Persistent Routes:
+  None
+
+IPv6 Route Table
+===========================================================================
+Active Routes:
+ If Metric Network Destination      Gateway
+  1    306 ::1/128                  On-link
+ 11    276 fe80::/64                On-link
+ 11    276 fe80::a084:5e6:f870:71a8/128
+                                    On-link
+  1    306 ff00::/8                 On-link
+ 11    276 ff00::/8                 On-link
+===========================================================================
+Persistent Routes:
+  None
+  
+  Before sending a packet your PC looks up the destination IP address in the routing table to determine the best route possible. A more specific match will take priority over others. For example if our PC from above wants to send data to 192.168.111.9 it first looks this up in it’s routing table and finds the entry 192.168.111.0. It also finds the 0.0.0.0 entry but as 192.168.111.0 is a closer match it takes priority. If I were to add a static entry (which we’ll come onto later) of 192.168.111.9 with a netmask of 255.255.255.255 this is an EXACT match so this would take priority over the 0.0.0.0 AND 192.168.111.0 entries. Once it finds a match it then checks the gateway column where in the case of our 192.168.111.0 entry it finds the “on-link” status. The on-link status tells the machine that this network is directly attached so it sends the packets directly to 192.168.111.9 using the NIC with interface 192.168.111.55.
+
+If a PC can’t find a matching entry in the routing table it will fail. It will also fail if the routing table is wrongly configured. For example what do you think would happen if we remove all the entries starting with 192.168.111? If I try to connect to any IP address starting with 192.168.111 there won’t be a specific entry for this anymore so the next best route is 0.0.0.0. This route tells my PC to forward the packets to the gateway 192.168.111.254 which would consequently fail of course. The same would happen if I left those entries in but changed the gateway from “on-link” to 192.168.111.87 (a random IP). What I am telling my PC to do now is forward all traffic for the 192.168.111.0 network to 192.168.111.87 instead of going directly to the PC’s. As you can see this would also fail.
+
+
+**********************************************************************************
+-bash-4.1$ lsblk
+NAME                            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda                               8:0    0 278.9G  0 disk
+ââsda1                            8:1    0   100M  0 part /boot
+ââsda2                            8:2    0 278.8G  0 part
+  âârootvg-rootvol (dm-0)       253:0    0   7.8G  0 lvm  /
+  âârootvg-swapvol (dm-1)       253:1    0     2G  0 lvm  [SWAP]
+  âârootvg-optvol (dm-2)        253:2    0   5.9G  0 lvm  /opt
+  âârootvg-varvol (dm-3)        253:3    0   3.9G  0 lvm  /var
+  âârootvg-tmpvol (dm-4)        253:4    0   5.9G  0 lvm  /tmp
+  âârootvg-homevol (dm-5)       253:5    0   7.8G  0 lvm  /home
+  âârootvg-corevol (dm-6)       253:6    0  11.7G  0 lvm  /var/crash
+  âârootvg-bmcvol (dm-7)        253:7    0     2G  0 lvm  /opt/bmc
+  âârootvg-jbossvol (dm-8)      253:8    0  15.1G  0 lvm  /jboss
+  âârootvg-jbosslogvol (dm-9)   253:9    0  15.1G  0 lvm  /jboss/support/logs
+  âârootvg-jbossdumpvol (dm-10) 253:10   0    10G  0 lvm  /jboss/support/dump
+  âârootvg-nfast (dm-11)        253:11   0    15G  0 lvm  /opt/nfast
+  âârootvg-starssCB (dm-12)     253:12   0    12G  0 lvm  /prd/ebnk
+  âârootvg-starssWB (dm-13)     253:13   0    15G  0 lvm  /prd/starss
+  âârootvg-netegrity (dm-14)    253:14   0    15G  0 lvm  /opt/netegrity
+sr0                              11:0    1  1024M  0 rom
+
+
+to get the exclude pattern in grep
+ grep -v ^# /etc/salt/minion
+
+
+# To export to file (data only)
+mysqldump -u [user] -p[pass] --no-create-info mydb > mydb.sql
+
+# To export to file (structure only)
+mysqldump -u [user] -p[pass] --no-data mydb > mydb.sql
+
+# To import to database
+mysql -u [user] -p[pass] mydb < mydb.sql
+
+to sun sonar report
+start sonar server
+go to project directory 
+D:\Ram\CRICode\ProvisioningCodeBase\CRI_Platform\ProvisioningEngine>mvn sonar:so
+nar -Dsonar.host.url=http://localhost:9000
+
+
+
+
+
+
+to get functions of python
+ dir(c)
+
+ to get parameters :
+ help(c,upper);
+ 
+ 
+ end of string
+ c[-1]
+ 
+ >>> c="Hi Rama!"
+>>> c[-1];
+'!'
+>>> c[-2];
+'a'
+>>> c[0:4];
+'Hi R'
+>>> c[:4];
+'Hi R'
+>>> c[3:];
+'Rama!'
+>>> c[-3:-1];
+'ma'
+
+>>> s=["h",9,"ram"];
+>>> s[0];
+'h'
+>>> s[1];
+9
+>>> type(s[1]);
+<type 'int'>
+>>> type(s[0]);
+<type 'str'>
+
+>>> type(s);
+<type 'list'>
+
+>>> s[:2];
+['h', 9]
+
+>>> t=("h","shanthi",0, 67);
+>>> type(t);
+<type 'tuple'>
+>>> t[0];
+'h'
+
+dir(tuple);
+
+
+only print inside pytin will print
+
+print example.__doc__
+to view the document
+
+>>> help(mymodule.MyClass)
+The class's docstring
+
+>>> help(mymodule.MyClass.my_method)
+The method's docstring
+
+>>> help(mymodule.my_function)
+The function's docstring
+
+ 
+ to get the secret key from PMP
+ salt-run sdb.get sdb://vault/vmwarewindows/password?password
+ salt-run sdb.get sdb://vault/azure/secret?password
+ 
+ aws ec2 describe-instances --query Reservations[*].Instances[*].IamInstanceProfile
+ 
+ aws ec2 describe-instances --query Reservations[*].{OwnerId:OwnerId,InstanceId:Instances[*].InstanceId,Name:Instances[*].Tags[?Key=='Name'].Value}
+ 
+  aws ec2 describe-instances --query Reservations[*].{OwnerId:OwnerId,Name:Instances[*].Tags[?Key=='Name'].Value}
+ 
+ aws ec2 describe-instances --query "Reservations[*].Instances[*].{Id:InstanceId,State:State.Name,Profile:IamInstanceProfile.Arn,Name:Tags[?Key=='Name'].Value}"
+
+ aws ec2 describe-instances --query "Reservations[*].{OwnerId:OwnerId,InstanceId:Instances[*].InstanceId,InstanceName:Instances[*].Tags[?Key=='Name'].Value}"
+
+ ###################################################################
+ Final command
+ aws ec2 describe-instances --query "Reservations[*].{OwnerId:OwnerId,InstanceId:Instances[*].InstanceId,TagName:Instances[*].Tags.Key,TagValue:Instances[*].Tags.Value}"
+ ###################################################################
+***********************************************************************************************************
+        {
+            "ReservationId": "r-0955c745b12626d3e",
+            "OwnerId": "021419995857",
+            "Instances": [
+                {
+                    "ProductCodes": [],
+                    "NetworkInterfaces": [
+                        {
+                            "VpcId": "vpc-1ed56e7b",
+                            "NetworkInterfaceId": "eni-aa7a0378",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-10-4-1-224.ec2.internal",
+                                    "PrivateIpAddress": "10.4.1.224"
+                                }
+                            ],
+                            "Attachment": {
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 0,
+                                "AttachTime": "2017-07-27T12:36:23.000Z",
+                                "Status": "attached",
+                                "AttachmentId": "eni-attach-53de34b7"
+                            },
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "OwnerId": "021419995857",
+                            "SubnetId": "subnet-1d2df46a",
+                            "PrivateIpAddress": "10.4.1.224",
+                            "Description": "Primary network interface",
+                            "Groups": [
+                                {
+                                    "GroupId": "sg-b58a8fc4",
+                                    "GroupName": "DynatraceWindows"
+                                }
+                            ],
+                            "PrivateDnsName": "ip-10-4-1-224.ec2.internal"
+                        }
+                    ],
+                    "Platform": "windows",
+                    "RootDeviceType": "ebs",
+                    "Tags": [
+                        {
+                            "Value": "DND-QE-DynatraceWindows-New",
+                            "Key": "Name"
+                        }
+                    ],
+                    "AmiLaunchIndex": 0,
+                    "LaunchTime": "2017-07-27T12:36:23.000Z",
+                    "SecurityGroups": [
+                        {
+                            "GroupId": "sg-b58a8fc4",
+                            "GroupName": "DynatraceWindows"
+                        }
+                    ],
+                    "SubnetId": "subnet-1d2df46a",
+                    "EbsOptimized": false,
+                    "InstanceId": "i-0e55713d48afb71c4",
+                    "Architecture": "x86_64",
+                    "PrivateDnsName": "ip-10-4-1-224.ec2.internal",
+                    "RootDeviceName": "/dev/sda1",
+                    "Hypervisor": "xen",
+                    "VirtualizationType": "hvm",
+                    "VpcId": "vpc-1ed56e7b",
+                    "ImageId": "ami-667b241d",
+                    "InstanceType": "t2.micro",
+                    "SourceDestCheck": true,
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/sda1",
+                            "Ebs": {
+                                "DeleteOnTermination": true,
+                                "AttachTime": "2017-07-27T12:36:24.000Z",
+                                "Status": "attached",
+                                "VolumeId": "vol-0b76a8590027a52d3"
+                            }
+                        }
+                    ],
+                    "StateTransitionReason": "User initiated (2017-08-24 11:27:23 GMT)",
+                    "Placement": {
+                        "Tenancy": "default",
+                        "GroupName": null,
+                        "AvailabilityZone": "us-east-1c"
+                    },
+                    "PrivateIpAddress": "10.4.1.224",
+                    "StateReason": {
+                        "Code": "Client.UserInitiatedShutdown",
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+                    },
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "State": {
+                        "Name": "stopped",
+                        "Code": 80
+                    },
+                    "ClientToken": "sJekJ1501158982981",
+                    "PublicDnsName": null,
+                    "IamInstanceProfile": {
+                        "Id": "AIPAIEKVHZIX3WUI4YB6E",
+                        "Arn": "arn:aws:iam::021419995857:instance-profile/DynaTraceCloudWatchRole"
+                    }
+                }
+            ],
+            "Groups": []
+        }
+		
+******************************************************************************************************
+
+http://jmespath.org/tutorial.html
+
+
+******************************************************************************************
+Python - Introsecption
+
+obj.__dict__
+
+    type()
+    dir()
+    id()
+    getattr()
+    hasattr()
+    globals()
+    locals()
+    callable()
+
+	
+	Jupyter installation
+	!pip install --verbose --index-url=https://pypi.python.org/simple/ --trusted-host pypi.python.org gTTS
