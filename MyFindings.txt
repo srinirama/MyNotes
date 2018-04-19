@@ -564,7 +564,7 @@ to view the classes that are loaded :
 
 	In my last posting I described the new Insert/Update/Delete from Select statement in DB2 v8.1.4. But as mentioned, even more powerful is the ability to Select directly from an Insert, update or delete statement. So for example you can run
 
-SELECT * FROM FINAL TABLE (INSERT INTO X VALUES Ö..)
+SELECT * FROM FINAL TABLE (INSERT INTO X VALUES ¬Ö..)
 
 This will return the values inserted into the table. You may look at this and say "who cares, I just inserted the values so I know what they are". But this select statement will return the final values inserted into the table after triggers fire, generated columns, identity columns and other side effects take place on the table. This is quite useful in pulling back a generated value or a default value from the insert statement.
 
@@ -583,7 +583,7 @@ Assume you want to get back the sequence number that is being inserted as part o
 
 SELECT ordernum INTO :ordernum
 FROM NEW TABLE
-    (INSERT INTO orders(ordernum,Ö) VALUES(NEXT VALUE FOR orderseq, ...))
+    (INSERT INTO orders(ordernum,¬Ö) VALUES(NEXT VALUE FOR orderseq, ...))
 
 
 
@@ -738,14 +738,14 @@ doskey /history
 
 Linux Commands:
 sudo !! command
-Running the command without specifying sudo command will give you permission denied error. So, you donít need to rewrite the whole command again just put ë!!ë will grab the last command.
-Double exclamation ie ë!!í represents the last run command on the shell. 
+Running the command without specifying sudo command will give you permission denied error. So, you don¬ít need to rewrite the whole command again just put ¬ë!!¬ë will grab the last command.
+Double exclamation ie ¬ë!!¬í represents the last run command on the shell. 
 
-Press ìCtrl-x-eî from the terminal prompt and start working in editor.
-The ìnl commandî number the lines of a file.
-The ìssî stands for socket statistics. The command investigates the socket and shows information similar to netstat command. It can display more TCP and state informations than other tools.
+Press ¬ìCtrl-x-e¬î from the terminal prompt and start working in editor.
+The ¬ìnl command¬î number the lines of a file.
+The ¬ìss¬î stands for socket statistics. The command investigates the socket and shows information similar to netstat command. It can display more TCP and state informations than other tools.
 
-The ìlastî command show the history of last logged in users. This command searches through the file ì/var/log/wtmpî and shows a list of logged-in and logged-out users along with ttyís.
+The ¬ìlast¬î command show the history of last logged in users. This command searches through the file ¬ì/var/log/wtmp¬î and shows a list of logged-in and logged-out users along with tty¬ís.
 
 Get the current directory structure in tree like format.
 
@@ -753,7 +753,7 @@ Get the current directory structure in tree like format.
  
  rm !(*.c|*.py)
  
- How to make a command not to show up in the output of ëhistoryí command?
+ How to make a command not to show up in the output of ¬ëhistory¬í command?
  You can achieve this by inserting a space before you type the command on prompt.
 Here is an example :
 $  df
@@ -787,7 +787,7 @@ One easy thing you can do is to turn on Garbage Collection stats at the JVM. If 
  =SUMIF(A5:A116,{"Open"},G5:G116)g
 
 find command to search based on modified date
--mtime n ------  File‚s data was last modified n*24 hours ago.
+-mtime n ------  File√¢s data was last modified n*24 hours ago.
 
 -mtime -0.5
 
@@ -1092,7 +1092,7 @@ Now go to the Menu "Search -> Bookmark -> Remove Bookmarked lines"
 Done.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Online Certificate Status Protocol (OCSP).  This is the preferred method for revocation checks in most environments today, because it provides near real-time updates.  OCSP allows the authentication server to send a real-time request (like a http web request) to the  service running on the CA or another device and checking the status of the certificate right then & there.  OCSP could be compared to the policeman using the computer in the squad car & doing a look-up into the DMVís database.
+Online Certificate Status Protocol (OCSP).  This is the preferred method for revocation checks in most environments today, because it provides near real-time updates.  OCSP allows the authentication server to send a real-time request (like a http web request) to the  service running on the CA or another device and checking the status of the certificate right then & there.  OCSP could be compared to the policeman using the computer in the squad car & doing a look-up into the DMV¬ís database.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -1211,7 +1211,7 @@ Interface List
  14...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
  13...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
 ===========================================================================
-The 0.0.0.0 network combined with the netmask (subnet mask) of 0.0.0.0 means ALL IP addresses. Note how this is the only line where the gateway is 192.168.111.254. This line tells the computer that for ALL traffic no matter what the destination IP address is send it to 10.132.140.129. This as you may have noticed is my default gateway. This is a default route created by Windows when you configure your TCP/IP settings . It is the last route it evaluates if it canít find a more specific match in the routing table.
+The 0.0.0.0 network combined with the netmask (subnet mask) of 0.0.0.0 means ALL IP addresses. Note how this is the only line where the gateway is 192.168.111.254. This line tells the computer that for ALL traffic no matter what the destination IP address is send it to 10.132.140.129. This as you may have noticed is my default gateway. This is a default route created by Windows when you configure your TCP/IP settings . It is the last route it evaluates if it can¬ít find a more specific match in the routing table.
 
 IPv4 Route Table
 ===========================================================================
@@ -1246,32 +1246,32 @@ Active Routes:
 Persistent Routes:
   None
   
-  Before sending a packet your PC looks up the destination IP address in the routing table to determine the best route possible. A more specific match will take priority over others. For example if our PC from above wants to send data to 192.168.111.9 it first looks this up in itís routing table and finds the entry 192.168.111.0. It also finds the 0.0.0.0 entry but as 192.168.111.0 is a closer match it takes priority. If I were to add a static entry (which weíll come onto later) of 192.168.111.9 with a netmask of 255.255.255.255 this is an EXACT match so this would take priority over the 0.0.0.0 AND 192.168.111.0 entries. Once it finds a match it then checks the gateway column where in the case of our 192.168.111.0 entry it finds the ìon-linkî status. The on-link status tells the machine that this network is directly attached so it sends the packets directly to 192.168.111.9 using the NIC with interface 192.168.111.55.
+  Before sending a packet your PC looks up the destination IP address in the routing table to determine the best route possible. A more specific match will take priority over others. For example if our PC from above wants to send data to 192.168.111.9 it first looks this up in it¬ís routing table and finds the entry 192.168.111.0. It also finds the 0.0.0.0 entry but as 192.168.111.0 is a closer match it takes priority. If I were to add a static entry (which we¬íll come onto later) of 192.168.111.9 with a netmask of 255.255.255.255 this is an EXACT match so this would take priority over the 0.0.0.0 AND 192.168.111.0 entries. Once it finds a match it then checks the gateway column where in the case of our 192.168.111.0 entry it finds the ¬ìon-link¬î status. The on-link status tells the machine that this network is directly attached so it sends the packets directly to 192.168.111.9 using the NIC with interface 192.168.111.55.
 
-If a PC canít find a matching entry in the routing table it will fail. It will also fail if the routing table is wrongly configured. For example what do you think would happen if we remove all the entries starting with 192.168.111? If I try to connect to any IP address starting with 192.168.111 there wonít be a specific entry for this anymore so the next best route is 0.0.0.0. This route tells my PC to forward the packets to the gateway 192.168.111.254 which would consequently fail of course. The same would happen if I left those entries in but changed the gateway from ìon-linkî to 192.168.111.87 (a random IP). What I am telling my PC to do now is forward all traffic for the 192.168.111.0 network to 192.168.111.87 instead of going directly to the PCís. As you can see this would also fail.
+If a PC can¬ít find a matching entry in the routing table it will fail. It will also fail if the routing table is wrongly configured. For example what do you think would happen if we remove all the entries starting with 192.168.111? If I try to connect to any IP address starting with 192.168.111 there won¬ít be a specific entry for this anymore so the next best route is 0.0.0.0. This route tells my PC to forward the packets to the gateway 192.168.111.254 which would consequently fail of course. The same would happen if I left those entries in but changed the gateway from ¬ìon-link¬î to 192.168.111.87 (a random IP). What I am telling my PC to do now is forward all traffic for the 192.168.111.0 network to 192.168.111.87 instead of going directly to the PC¬ís. As you can see this would also fail.
 
 
 **********************************************************************************
 -bash-4.1$ lsblk
 NAME                            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda                               8:0    0 278.9G  0 disk
-‚‚sda1                            8:1    0   100M  0 part /boot
-‚‚sda2                            8:2    0 278.8G  0 part
-  ‚‚rootvg-rootvol (dm-0)       253:0    0   7.8G  0 lvm  /
-  ‚‚rootvg-swapvol (dm-1)       253:1    0     2G  0 lvm  [SWAP]
-  ‚‚rootvg-optvol (dm-2)        253:2    0   5.9G  0 lvm  /opt
-  ‚‚rootvg-varvol (dm-3)        253:3    0   3.9G  0 lvm  /var
-  ‚‚rootvg-tmpvol (dm-4)        253:4    0   5.9G  0 lvm  /tmp
-  ‚‚rootvg-homevol (dm-5)       253:5    0   7.8G  0 lvm  /home
-  ‚‚rootvg-corevol (dm-6)       253:6    0  11.7G  0 lvm  /var/crash
-  ‚‚rootvg-bmcvol (dm-7)        253:7    0     2G  0 lvm  /opt/bmc
-  ‚‚rootvg-jbossvol (dm-8)      253:8    0  15.1G  0 lvm  /jboss
-  ‚‚rootvg-jbosslogvol (dm-9)   253:9    0  15.1G  0 lvm  /jboss/support/logs
-  ‚‚rootvg-jbossdumpvol (dm-10) 253:10   0    10G  0 lvm  /jboss/support/dump
-  ‚‚rootvg-nfast (dm-11)        253:11   0    15G  0 lvm  /opt/nfast
-  ‚‚rootvg-starssCB (dm-12)     253:12   0    12G  0 lvm  /prd/ebnk
-  ‚‚rootvg-starssWB (dm-13)     253:13   0    15G  0 lvm  /prd/starss
-  ‚‚rootvg-netegrity (dm-14)    253:14   0    15G  0 lvm  /opt/netegrity
+√¢√¢sda1                            8:1    0   100M  0 part /boot
+√¢√¢sda2                            8:2    0 278.8G  0 part
+  √¢√¢rootvg-rootvol (dm-0)       253:0    0   7.8G  0 lvm  /
+  √¢√¢rootvg-swapvol (dm-1)       253:1    0     2G  0 lvm  [SWAP]
+  √¢√¢rootvg-optvol (dm-2)        253:2    0   5.9G  0 lvm  /opt
+  √¢√¢rootvg-varvol (dm-3)        253:3    0   3.9G  0 lvm  /var
+  √¢√¢rootvg-tmpvol (dm-4)        253:4    0   5.9G  0 lvm  /tmp
+  √¢√¢rootvg-homevol (dm-5)       253:5    0   7.8G  0 lvm  /home
+  √¢√¢rootvg-corevol (dm-6)       253:6    0  11.7G  0 lvm  /var/crash
+  √¢√¢rootvg-bmcvol (dm-7)        253:7    0     2G  0 lvm  /opt/bmc
+  √¢√¢rootvg-jbossvol (dm-8)      253:8    0  15.1G  0 lvm  /jboss
+  √¢√¢rootvg-jbosslogvol (dm-9)   253:9    0  15.1G  0 lvm  /jboss/support/logs
+  √¢√¢rootvg-jbossdumpvol (dm-10) 253:10   0    10G  0 lvm  /jboss/support/dump
+  √¢√¢rootvg-nfast (dm-11)        253:11   0    15G  0 lvm  /opt/nfast
+  √¢√¢rootvg-starssCB (dm-12)     253:12   0    12G  0 lvm  /prd/ebnk
+  √¢√¢rootvg-starssWB (dm-13)     253:13   0    15G  0 lvm  /prd/starss
+  √¢√¢rootvg-netegrity (dm-14)    253:14   0    15G  0 lvm  /opt/netegrity
 sr0                              11:0    1  1024M  0 rom
 
 
@@ -1511,3 +1511,9 @@ obj.__dict__
 	
 	Jupyter installation
 	!pip install --verbose --index-url=https://pypi.python.org/simple/ --trusted-host pypi.python.org gTTS
+	
+	
+
+You've the following possibilities to solve issue with CERTIFICATE_VERIFY_FAILED:
+Use HTTP instead of HTTPS.Use --cert <trusted.pem> or CA_BUNDLE variable to specify alternative CA bundle.
+E.g. you can go to failing URL from web-browser and import root certificate into your system.Run python -c "import ssl; print(ssl.get_default_verify_paths())" to check the current one (validate if exists).OpenSSL has a pair of environments (SSL_CERT_DIR, SSL_CERT_FILE) which can be used to specify different certificate databasePEP-476.Use --trusted-host <hostname> to mark the host as trusted.In Python use verify=False for requests.get (see: SSL Cert Verification).Use --proxy <proxy> to avoid certificate checks.Read more at: TLS/SSL wrapper for socket objects - Verifying certificates.
