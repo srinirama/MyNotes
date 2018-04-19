@@ -1,2 +1,2 @@
 # MyNotes
-Linux Command Notes
+Linux Command Notes which was used in various projects
