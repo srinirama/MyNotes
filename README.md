@@ -1,0 +1,2 @@
+# MyNotes
+Linux Command Notes
