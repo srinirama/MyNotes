@@ -1,4 +1,4 @@
- Xming on Linux
+﻿ Xming on Linux
  sudo apt-get install openssh-server xfce4
  
 
@@ -1517,3 +1517,13 @@ obj.__dict__
 You've the following possibilities to solve issue with CERTIFICATE_VERIFY_FAILED:
 Use HTTP instead of HTTPS.Use --cert <trusted.pem> or CA_BUNDLE variable to specify alternative CA bundle.
 E.g. you can go to failing URL from web-browser and import root certificate into your system.Run python -c "import ssl; print(ssl.get_default_verify_paths())" to check the current one (validate if exists).OpenSSL has a pair of environments (SSL_CERT_DIR, SSL_CERT_FILE) which can be used to specify different certificate databasePEP-476.Use --trusted-host <hostname> to mark the host as trusted.In Python use verify=False for requests.get (see: SSL Cert Verification).Use --proxy <proxy> to avoid certificate checks.Read more at: TLS/SSL wrapper for socket objects - Verifying certificates.
+
+
+
+
+to invoke jenkins remotely
+[root@ip-10-57-182-11 spring-framework-petclinic]# cat /opt/trigger
+#!/bin/bash
+
+CRUMB=$(curl -s 'http://admin:admin@10.57.182.11:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+/bin/curl -X POST -H "$CRUMB" "http://admin:admin@10.57.182.11:8080/job/hivecenterdemo/buildWithParameters?H_Rest=https://demo-hivecenter.cognizantgoc.com"
