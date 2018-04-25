@@ -1,0 +1,174 @@
+#!groovy
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+
+def hook = registerWebhook()
+def H_API ='Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJoYXJtb255LmNvbSIsInN1YiI6ImplbmtpbnNAYWJjLGNvbSIsImRldmljZSI6InBvcnRhbCIsImN1c3RvbWVyIjoiQWxsIEN1c3RvbWVycyIsInR0bCI6NTk4OTkwMCwicmVmcmVzaF90dGwiOjU5OTk5OTAsImV4cCI6MTc5ODc2MTYwMCwibmFtZSI6ImplbmtpbnMiLCJzb3VyY2UiOiJqZW5raW5zIiwiZW1haWxpZCI6ImplbmtpbnNAYWJjLGNvbSIsInBlcm1pc3Npb25zIjpbXSwiaWF0IjoxNTIyMjIyMzA2LCJuYmYiOjE1MjIyMjIzMDYsImp0aSI6IlNuUTdHMUJFQlNyOFNRZHkifQ.gBSPXFQDMuzy8YchBaA7imorcZqyFoytU0UfP8UIv14'
+def ipaddress=""
+
+                        @NonCPS
+                        def get_params(){
+                            def file = "/tmp/instanceName.txt"
+                            def content = readFile(file)
+                            return content
+                        }
+
+pipeline {
+    agent any
+
+        parameters {
+        string(name: 'H_Rest', defaultValue: 'https://demo-hivecenter.cognizantgoc.com/', description: 'Hive Center REST API')
+        //string(name: 'H_Exec_Rest', defaultValue: 'https://demo-hivecenter.cognizantgoc.com/provisioning/services/provisioningservice/box/execute', description: 'Hive Center Execute REST API')
+    }
+    stages {
+
+        stage('BuildingArtifacts') {
+            steps {
+                                script {
+                                        def WORKSPACE = pwd()
+                                        sh "echo ${WORKSPACE}"
+                                                                                sh "source ~jenkins/.bashrc && cd  ${WORKSPACE} && ./mvnw clean install"
+                                }
+           }
+        }
+        stage('GetHiveCenterTemplate') {
+            steps {
+                script{
+                                def USERS = sh (returnStdout: true, script: "${WORKSPACE}/jenkin-pipescripts/GetHiveCenterTemplate.py ${H_Rest} \"${H_API}\" users")
+                                def PROJECTS = sh (returnStdout: true, script: "${WORKSPACE}/jenkin-pipescripts/GetHiveCenterTemplate.py ${H_Rest} \"${H_API}\" projects")
+                                sh "echo ${USERS}"
+                                sh 'echo ${USERS} >> /tmp/users.log'
+                                sh "echo ${PROJECTS}"
+                                }
+            }
+        }
+        stage('UserInput') {
+            steps {
+                script {
+                            def H_Exec_Rest="${H_Rest}/provisioning/services/provisioningservice/box/execute"
+                            def USERNAME = input message: 'User input required', ok: 'Submit!',
+                            parameters: [choice(name: 'USERNAME', choices: "556014\n", description: 'User id from Harmony'),choice(name: 'APPLICATIONNAME', choices: "BookMyFlowers\n", description: 'ApplicationName from Harmony'),choice(name: 'CUSTOMERNAME', choices: "TestCustomer\n", description: 'customerName from Harmony'),choice(name: 'CUSTOMERID', choices: "100\n", description: 'customerId from Harmony'),choice(name: 'PROJECTNAME', choices: "First Project\n", description: 'projectName from Harmony'),choice(name: 'SATELLITE', choices: "DemoAWSSatellite\n", description: 'satellite from Harmony'),choice(name: 'CLOUDNAME', choices: "AWSCloudProv\n", description: 'cloudName from Harmony'),string(name: 'DESCRIPTION',  description: 'description from this activity'),choice(name: 'BOXNAME', choices: "demo20linux\n", description: 'boxName from Harmony'),choice(name: 'BOXID', choices: "1\n", description: 'boxId from Harmony'),string(name: 'TEMPLATENAME',  description: 'templateName from Harmony (if applicable)'),choice(name: 'ENTITYTYPE', choices: "Server\n", description: 'entityType from Harmony'),choice(name: 'TECHNOLOGY', choices: "linux\n", description: 'technology from Harmony'),choice(name: 'PROVIDERTYPE', choices: "aws\n", description: 'providerType from Harmony'),choice(name: 'PROVIDERNAME', choices: "AWSCloudProv\n", description: 'providerName from Harmony'),string(name: 'INSTANCENAME', defaultValue: "CentOS_DevCluster_1603011\n", description: 'instanceName from Harmony')]
+                                //def USERNAME = input message: 'User input required', ok: 'Submit!',parameters: [choice(name: 'USERNAME', choices: "${USERS}", description: 'User id from Harmony')]
+                                        echo "CUSTOMERNAME : ${USERNAME['CUSTOMERNAME']}"
+                                        echo "CUSTOMERID : ${USERNAME['CUSTOMERID']}"
+                                        echo "PROJECTNAME : ${USERNAME['PROJECTNAME']}"
+                                        echo "SATELLITE : ${USERNAME['SATELLITE']}"
+                                        echo "CLOUDNAME : ${USERNAME['CLOUDNAME']}"
+                                        echo "DESCRIPTION : ${USERNAME['DESCRIPTION']}"
+                                        echo "BOXNAME : ${USERNAME['BOXNAME']}"
+                                        echo "BOXID : ${USERNAME['BOXID']}"
+                                       echo "TEMPLATENAME : ${USERNAME['TEMPLATENAME']}"
+                                        echo "ENTITYTYPE : ${USERNAME['ENTITYTYPE']}"
+                                         echo "TECHNOLOGY : ${USERNAME['TECHNOLOGY']}"
+                                        echo "PROVIDERTYPE : ${USERNAME['PROVIDERTYPE']}"
+                                        echo "PROVIDERNAME : ${USERNAME['PROVIDERNAME']}"
+                                        echo "INSTANCENAME : ${USERNAME['INSTANCENAME']}" 
+                                                                                writeFile file: "/tmp/instanceName.txt", text: "${USERNAME['INSTANCENAME']}"
+                                                                                env.instanceName = "${USERNAME['INSTANCENAME']}"
+
+                                        writeFile file: "/tmp/usefulfile.txt", text: "{\"systemDetails\": {\"userName\": \"${USERNAME['USERNAME']}\",\"applicationName\": \"${USERNAME['APPLICATIONNAME']}\",\"customerName\": \"${USERNAME['CUSTOMERNAME']}\",\"customerId\": \"${USERNAME['CUSTOMERID']}\",\"projectName\": \"${USERNAME['PROJECTNAME']}\",\"satellite\": \"${USERNAME['SATELLITE']}\",\"cloudName\": \"${USERNAME['CLOUDNAME']}\",\"description\": \"${USERNAME['DESCRIPTION']}\"},\"boxDetails\":{ \"boxName\": \"${USERNAME['BOXNAME']}\", \"boxId\": \"${USERNAME['BOXID']}\", \"templateName\": \"${USERNAME['TEMPLATENAME']}\", \"entityType\": \"${USERNAME['ENTITYTYPE']}\", \"technology\": \"${USERNAME['TECHNOLOGY']}\", \"providerType\": \"${USERNAME['PROVIDERTYPE']}\", \"providerName\": \"${USERNAME['PROVIDERNAME']}\", \"additionalParameters\": { \"instanceName\": \"${USERNAME['INSTANCENAME']}\", \"overrideParams\": { \"tag\": { \"userName\": \"${USERNAME['USERNAME']}\", \"applicationName\": \"${USERNAME['APPLICATIONNAME']}\", \"customerName\": \"${USERNAME['CUSTOMERNAME']}\", \"customerId\": \"${USERNAME['CUSTOMERID']}\", \"projectName\": \"${USERNAME['PROJECTNAME']}\", \"satellite\": \"${USERNAME['SATELLITE']}\", \"cloudName\": \"${USERNAME['CLOUDNAME']}\",\"hookURL\": \"${hook.getURL()}\"}  }       }       } }"
+
+                                        echo "HookURL to ${hook.getURL()}"
+
+
+                                        //TODO change URL to take from params
+                                        sh 'curl -k -X POST --header "Content-type: application/json" --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJoYXJtb255LmNvbSIsInN1YiI6ImplbmtpbnNAYWJjLGNvbSIsImRldmljZSI6InBvcnRhbCIsImN1c3RvbWVyIjoiQWxsIEN1c3RvbWVycyIsInR0bCI6NTk4OTkwMCwicmVmcmVzaF90dGwiOjU5OTk5OTAsImV4cCI6MTc5ODc2MTYwMCwibmFtZSI6ImplbmtpbnMiLCJzb3VyY2UiOiJqZW5raW5zIiwiZW1haWxpZCI6ImplbmtpbnNAYWJjLGNvbSIsInBlcm1pc3Npb25zIjpbXSwiaWF0IjoxNTIyMjIyMzA2LCJuYmYiOjE1MjIyMjIzMDYsImp0aSI6IlNuUTdHMUJFQlNyOFNRZHkifQ.gBSPXFQDMuzy8YchBaA7imorcZqyFoytU0UfP8UIv14" --data @/tmp/usefulfile.txt https://demo-hivecenter.cognizantgoc.com/provisioning/services/provisioningservice/box/execute >> /tmp/activity.log'
+                                        sh 'echo \\n >> /tmp/activity.log'
+                                }
+                                sh 'echo Completed'
+                                echo "${params.BuildURL} !"
+            }
+        post {
+            success {
+            sh 'tail -1 /tmp/activity.log'
+        }
+
+                }
+        }
+        stage('ExecuteProvisioning') {
+                steps {
+                        script {
+                    echo "Awaiting for completion from Automation : curl -X POST -d '{ \"ActivityID\": \"594155\",\"owner\":\"Ram\",\"output\": \"<<saltstack JSON output>>\" }' ${hook.getURL()}"
+                        data = waitForWebhook hook
+                        echo "Webhook called with data: ${data}"
+                        writeFile file: "/tmp/data.json", text: "${data}"
+                        def props = new JsonSlurper().parseText("${data}")
+                        echo "/**********************************************************************************************/"
+                        echo "KeySet -- >${props.keySet()}"
+                        echo "/**********************************************************************************************/"
+                        echo "Activity ID ==== ${props.ActivityID}"
+                        echo "Owner  ==== ${props.owner}"
+                        
+                           //def file = "/tmp/instanceName.txt"
+                            //def iName = readFile(file)
+                       // def iName = get_params()
+                        echo "iName == ${env.instanceName}"
+                        def iName = "${env.instanceName}"
+                        
+                        IP = 'props.output.local.'+iName
+                        
+
+                         if (props.status.equals("SUCCESS")) {
+                                echo "STATUS ==== ${props.status}"
+                                echo "Output JSON ==== ${props.output}"
+                                
+                                echo "python ${WORKSPACE}/jenkin-pipescripts/getKeyValue.py /tmp/data.json output.local.${iName}.privateIpAddress"
+                                //echo "IP Address ==== ${props.output.local}"
+                                                                                    
+                                                                //
+                                                                //writeFile file: "/tmp/ipdetails.json", text: "${props.output.local}"
+                                //echo "IP Address ==== $props.output.local.${USERNAME['INSTANCENAME']}"
+                                                                //def IP = sh (returnStdout: true, script: "echo ${props.output.local} | awk -F\"privateIpAddress\" '{print ${NF}}' | awk -F[':',','] '{print ${2}}'")
+                                                                //IP = sh (returnStdout: true, script: "python ${WORKSPACE}/jenkin-pipescripts/getKeyValue.py /opt/test output.local.${iName}.privateIpAddress")
+                                                                //IP = evaluate("${IP}")
+                                                                //sh 'echo ${IP}' //echo "ip  === ${IP}"
+                                def myIP = "${props.output.output.local[iName].privateIpAddress}"
+                                echo "${myIP}"
+                                ipaddress = "${myIP}"
+                                //def check =mymap.containsKey(iName)
+                                //echo "${check}"
+                                //def mykeyy = mymap.find { it.key == iName }?.key
+                                //echo "IP Address ==== ${mykeyy}"
+                                //echo "IP Address ==== ${props.output.local[iName]}"
+                                //echo "DNS Name ==== ${props.output.local.test-556014-35.privateDnsName}"
+                                //echo "Keys of Local ===== ${props.output.local.test-556014-35.keySet()}"
+                                //def output = "${props.output}"
+                                echo ""
+
+                        } else {
+                                error("Build failed since STATUS returned from Automation  is ${props.status}")
+                        }
+            echo "OUTPUT"
+                    }
+        }
+        }
+
+
+                stage('ApacheInstallonRemoteHost') {
+            steps {
+                echo 'CopyArtifacts....'
+                script {
+                sh "id"
+                def WORKSPACE = pwd()
+                sh "cd ${WORKSPACE}"
+
+                sh "ssh -o StrictHostKeyChecking=no -i ../QE-TEST-01-12-2017.pem   ec2-user@${ipaddress} 'cd /opt/ && sudo  yum install -y java-1.8.0 wget && java -version'"
+                //sh "ssh -o StrictHostKeyChecking=no -i ../QE-TEST-01-12-2017.pem   ec2-user@${ipaddress} 'sudo groupadd -f tomcat && sudo useradd -g tomcat -d /opt/tomcat -s /bin/nologin tomcat'"
+                sh "ssh -o StrictHostKeyChecking=no -i ../QE-TEST-01-12-2017.pem   ec2-user@${ipaddress} 'cd /opt/ && sudo rm -rf /opt/apache-tomcat* && sudo wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.20/bin/apache-tomcat-8.5.20.tar.gz'"
+                sh "ssh -o StrictHostKeyChecking=no -i ../QE-TEST-01-12-2017.pem   ec2-user@${ipaddress} 'cd /opt/ && sudo tar -zxvf apache-tomcat-8.5.20.tar.gz && sudo rm -rf /opt/tomcat && sudo mv /opt/apache-tomcat-8.5.20 /opt/tomcat'"
+                sh "scp -o StrictHostKeyChecking=no -i ../QE-TEST-01-12-2017.pem   target/petclinic.war ec2-user@${ipaddress}:."
+                sh "ssh -o StrictHostKeyChecking=no -i ../QE-TEST-01-12-2017.pem   ec2-user@${ipaddress} 'sudo cp ~ec2-user/petclinic.war /opt/tomcat/webapps/.'"
+                sh "ssh -o StrictHostKeyChecking=no -i ../QE-TEST-01-12-2017.pem   ec2-user@${ipaddress} 'sudo sh /opt/tomcat/bin/startup.sh'"
+                sh "ssh -o StrictHostKeyChecking=no -i ../QE-TEST-01-12-2017.pem   ec2-user@${ipaddress} 'sudo netstat -antup | grep 8080'"
+                }
+                }
+        }
+
+                stage('Conculsion') {
+            steps {
+                echo 'Conculsion....'
+            }
+        }
+    }
+}
+
