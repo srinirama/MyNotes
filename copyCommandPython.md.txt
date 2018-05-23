@@ -1,0 +1,9 @@
+Purpose
+The purpose of Pyperclip is to provide a cross-platform Python module for copying and pasting text to the clipboard.
+
+To copy text to the clipboard, pass a string to pyperclip.copy(). To paste the text from the clipboard, call pyperclip.paste() and the text will be returned as a string value.
+
+>>> import pyperclip
+>>> pyperclip.copy('Hello world!')
+>>> pyperclip.paste()
+'Hello world!'
