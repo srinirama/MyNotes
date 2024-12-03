@@ -1,0 +1,22 @@
+Black Friday Scaling Issues
+
+And these were the challenges starring at me:
+
+1. Traffic could skyrocket at any moment, requiring immediate node scaling without delays.
+
+2. We heavily relied on Spot Instances. These instances could be reclaimed at any time, creating potential downtime.
+
+3. Over time, some nodes in the cluster could drift from their intended configurations, resulting in wasted resources.
+
+4. High workloads could stress some nodes to failure, requiring quick detection and repairs.
+
+To tackle these challenges, I enabled three powerful Karpenter Feature Gates:
+
+SpotToSpotConsolidation:
+Migrates workloads from at-risk spot instances to more stable, cost-effective options before termination.
+
+Drift:
+Automatically detects misaligned or underutilized nodes and replaces them to maintain efficiency.
+
+NodeRepair:
+Automatically detects unhealthy nodes and repairs or replaces them without manual intervention.
