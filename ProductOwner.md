@@ -17,3 +17,6 @@ The Product owner also oversees the sprint planning activities, attends daily sc
 
 PO also tests out the features and meets with stakeholders to iron out requirements and priorities for the upcoming sprints.
 
+![Alt text](productowner.gif "Product Owner")
+
+
